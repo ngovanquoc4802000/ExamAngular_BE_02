@@ -66,7 +66,6 @@ app.delete("/products/:id", (req, res) => {
         res.status(404).json({message: 'Not found'});
     }
 });
-
 app.put("/products/:id", (req, res) => {
     const id = +req.params.id;
     const index = findProductIndex(id);
