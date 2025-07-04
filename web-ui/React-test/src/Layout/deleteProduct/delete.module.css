@@ -1,0 +1,127 @@
+.pageWrapper {
+  padding: 1rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centeredPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.loadingText {
+  font-size: 1.25rem;
+  color: #4b5563;
+}
+
+.errorText {
+  font-size: 1.25rem;
+  color: #dc2626;
+  text-align: center;
+}
+
+.card {
+  max-width: 640px;
+  width: 100%;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.confirmText {
+  font-size: 1.125rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.productInfo {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.value {
+  font-size: 1.25rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cancelButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #6b7280;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancelButton:hover {
+  background-color: #4b5563;
+}
+
+.deleteButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #b91c1c;
+}
+
+.primaryButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primaryButton:hover {
+  background-color: #2563eb;
+}

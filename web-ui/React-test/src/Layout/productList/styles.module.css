@@ -1,0 +1,196 @@
+.container {
+  padding: 1rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.card {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #374151;
+}
+
+.addButtonContainer {
+  margin-bottom: 1rem;
+}
+
+.addButton {
+  display: inline-block;
+  background-color: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.75rem;
+
+  @media (min-width: 1024px) {
+    font-size: 1rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.addButton:hover {
+  background-color: #16a34a;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tableHead {
+  background-color: #e5e7eb;
+}
+
+.tableHead th {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.tableBody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tableBody tr:hover {
+  background-color: #f9fafb;
+}
+
+.tableBody td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.productNameLink {
+  color: #2563eb;
+}
+
+.productNameLink:hover {
+  text-decoration: underline;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.deleteButton {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.75rem;
+
+  @media (min-width: 1024px) {
+    font-size: 0.875rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.deleteButton:hover {
+  background-color: #dc2626;
+}
+
+.editButton {
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-weight: 700;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.75rem;
+
+  @media (min-width: 1024px) {
+    font-size: 0.875rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.editButton:hover {
+  background-color: #2563eb;
+}
+
+.noProducts {
+  padding-top: 1rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.loadingMessage,
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.loadingMessage p {
+  font-size: 1.25rem;
+  color: #4b5563;
+}
+
+.errorMessage p {
+  font-size: 1.25rem;
+  color: #dc2626;
+}

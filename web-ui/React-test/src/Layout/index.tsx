@@ -1,7 +1,7 @@
-function Layout() {
+function Navbar() {
     return ( 
         <></>
      );
 }
 
-export default Layout;
+export default Navbar;

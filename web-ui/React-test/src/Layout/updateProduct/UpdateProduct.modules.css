@@ -1,0 +1,114 @@
+.update-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 20px;
+}
+
+.update-product__form-wrapper {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.update-product__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #1f2937;
+}
+
+.update-product__form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.update-product__form input,
+.update-product__form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  transition: border 0.3s ease;
+}
+
+.update-product__form input:focus,
+.update-product__form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.update-product__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.update-product__buttons button {
+  flex: 1;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+.update-product__buttons button:first-child {
+  background-color: #3b82f6;
+}
+
+.update-product__buttons button:first-child:hover {
+  background-color: #2563eb;
+}
+
+.update-product__buttons button:last-child {
+  background-color: #6b7280;
+}
+
+.update-product__buttons button:last-child:hover {
+  background-color: #4b5563;
+}
+
+.update-product__success {
+  text-align: center;
+  color: #16a34a;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.update-product__loading,
+.update-product__error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f3f4f6;
+  gap: 16px;
+}
+
+.update-product__error p {
+  color: #dc2626;
+  font-size: 18px;
+}
+
+.update-product__error button {
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

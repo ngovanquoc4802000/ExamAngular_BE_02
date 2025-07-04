@@ -1,0 +1,103 @@
+.pageWrapper {
+  padding: 1rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centeredPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.loadingText {
+  font-size: 1.25rem;
+  color: #4b5563;
+}
+
+.errorText {
+  font-size: 1.25rem;
+  color: #dc2626;
+  text-align: center;
+}
+
+.card {
+  max-width: 600px;
+  width: 100%;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.section {
+  margin-bottom: 1.25rem;
+}
+
+.label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.value {
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #111827;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.backButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: #2563eb;
+}
+
+.editButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #10b981;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.editButton:hover {
+  background-color: #059669;
+}

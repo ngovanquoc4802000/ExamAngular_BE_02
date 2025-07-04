@@ -1,97 +1,133 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-interface ProductState {
-  id: number;
-  title: string;
-  price: string;
-  description: string;
-}
+import { useProductList } from "../../Hook/useProductList";
+import styles from "./styles.module.css";
 
 function ProductList() {
-  const [product, setProduct] = useState<ProductState[]>([]);
-  useEffect(() => {
-    const fetch = async () => {
-      const response = await axios.get<ProductState[]>(
-        "http://localhost:3000/products"
-      );
-      setProduct(response.data);
-    };
-    fetch();
-  }, []);
+  const {
+    handleDelete,
+    handleEdit,
+    handleShowDetail,
+    cancelDelete,
+    confirmDelete,
+    products,
+    loading,
+    error,
+    showConfirmModal,
+  } = useProductList();
+
+  if (loading) {
+    return (
+      <div className={styles.loadingMessage}>
+        <p>Đang tải sản phẩm...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.errorMessage}>
+        <p>{error}</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="p-4 bg-gray-100 min-h-screen">
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">
-          Danh sách sản phẩm
-        </h2>
-        <div className="mb-4">
-          <Link
-            to="/products/add"
-            className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300 ease-in-out"
-          >
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>Danh sách sản phẩm</h2>
+        <div className={styles.addButtonContainer}>
+          <Link to="/products/add" className={styles.addButton}>
             Thêm mới
           </Link>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <thead className="bg-gray-200">
+        <div className={styles.tableContainer}>
+          <table className={styles.table}>
+            <thead className={styles.tableHead}>
               <tr>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-300">
-                  #
-                </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-300">
-                  Tên sản phẩm
-                </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-300">
-                  Mô tả
-                </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-300">
-                  Giá
-                </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-300"></th>{" "}
+                <th className={styles.tableHeadTh}>#</th>
+                <th className={styles.tableHeadTh}>Tên sản phẩm</th>
+                <th className={styles.tableHeadTh}>Mô tả</th>
+                <th className={styles.tableHeadTh}>Giá</th>
+                <th className={styles.tableHeadTh}></th>
               </tr>
             </thead>
-            <tbody>
-              {product.map((product, index) => (
-                <tr
-                  key={product.id}
-                  className="border-b border-gray-200 hover:bg-gray-50"
-                >
-                  <td className="py-3 px-4 text-sm text-gray-800">
-                    {index + 1}
-                  </td>
-                  <td className="py-3 px-4 text-sm text-blue-600 hover:underline">
-                    <Link to={`/products/${product.id}`}>{product.title}</Link>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-gray-800">
-                    {product.description}
-                  </td>
-                  <td className="py-3 px-4 text-sm text-gray-800">
-                    {product.price}
-                  </td>
-                  <td className="py-3 px-4 text-sm text-gray-800 flex space-x-2">
-                    <Link
-                      to={`/products/delete/${product.id}`} 
-                      className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded-md shadow-sm transition duration-300 ease-in-out text-xs"
+            <tbody className={styles.tableBody}>
+              {products.length > 0 ? (
+                products.map((product, index) => (
+                  <tr key={product.id}>
+                    <td className={styles.tableBodyTd}>{index + 1}</td>
+                    <td
+                      className={`${styles.tableBodyTd} ${styles.productNameLink}`}
                     >
-                      Xóa
-                    </Link>
-                    <Link
-                      to={`/products/edit/${product.id}`} 
-                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-md shadow-sm transition duration-300 ease-in-out text-xs"
+                      <Link to={`/products/${product.id}`}>
+                        {product.title}
+                      </Link>
+                    </td>
+                    <td className={styles.tableBodyTd}>
+                      {product.description}
+                    </td>
+                    <td className={styles.tableBodyTd}>{product.price}</td>
+                    <td
+                      className={`${styles.tableBodyTd} ${styles.actionButtons}`}
                     >
-                      Sửa
-                    </Link>
+                      <button
+                        onClick={() => handleShowDetail(product.id)}
+                        className={styles.showButton}
+                      >
+                        Show
+                      </button>
+                      <button
+                        onClick={() => handleDelete(product.id)}
+                        className={styles.deleteButton}
+                      >
+                        Xóa
+                      </button>
+                      <button
+                        onClick={() => handleEdit(product.id)}
+                        className={styles.editButton}
+                      >
+                        Sửa
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={5} className={styles.noProducts}>
+                    Không có sản phẩm nào để hiển thị.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
       </div>
+
+      {showConfirmModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h3 className={styles.modalTitle}>Xác nhận xóa</h3>
+            <p className={styles.modalMessage}>
+              Bạn có chắc chắn muốn xóa sản phẩm này không?
+            </p>
+            <div className={styles.modalActions}>
+              <button
+                onClick={cancelDelete}
+                className={styles.modalCancelButton}
+              >
+                Hủy
+              </button>
+              <button
+                onClick={confirmDelete}
+                className={styles.modalConfirmButton}
+              >
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
